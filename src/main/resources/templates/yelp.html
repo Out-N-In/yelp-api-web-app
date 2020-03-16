@@ -10,14 +10,14 @@
 <table>
     <thead>
     <tr>
-        <th> ID </th>
         <th> Name </th>
+        <th> Image </th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="b : ${yelp_result}">
-        <td><span th:text="${b.id}"> ID </span></td>
         <td><span th:text="${b.name}"> Name </span></td>
+        <td><img th:src="${b.image_url}" width="300" /></td>
     </tr>
     </tbody>
 </table>
