@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="'Hello, ' + 'world' + '!'" />
+<!--<p th:text="${yelp_result}" />-->
+<p id ="raw"></p>
+<p id ="demo"></p>
+<p id ="sample_table"></p>
+<table>
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="b : ${yelp_result}">
+        <td><span th:text="${b.id}"> ID </span></td>
+        <td><span th:text="${b.name}"> Name </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
