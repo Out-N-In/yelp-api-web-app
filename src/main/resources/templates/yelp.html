@@ -2,11 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Yelp Result</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<lable id = "iResult"></lable>
+<form class="example" action="yelp">
+        <input type="text" placeholder="What kind of food" name="term">
+        <input type="text" placeholder="location" name="location">
+        <button type="submit"><i class="fa fa-search"></i></button>
+</form>
 <table>
     <thead>
     <tr>
@@ -16,10 +23,11 @@
     </thead>
     <tbody>
     <tr th:each="b : ${yelp_result}">
-        <td><span th:text="${b.name}"> Name </span></td>
+        <td><span th:text="${b.name}"> </span></td>
         <td><img th:src="${b.image_url}" width="300" /></td>
     </tr>
     </tbody>
 </table>
 </body>
+
 </html>
