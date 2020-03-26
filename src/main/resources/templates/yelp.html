@@ -9,11 +9,51 @@
 </head>
 <body>
 <lable id = "iResult"></lable>
-<form class="example" action="yelp">
+<form action="yelp">
         <input type="text" placeholder="What kind of food" name="term">
         <input type="text" placeholder="location" name="location">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit"><i class="fa fa-search"></i>Lets start search</button>
+        <input type="text" id="curr_lat"  name="LA">
+        <input type="text" id="curr_lon"  name="LO">
+<!--        <button type="submit"><i class="fa fa-search"></i></button>-->
 </form>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick= "getLocation()"> Try It </button>
+
+<!--<form action="yelp">-->
+<!--    <p name="latitude" id="latitude"></p>-->
+<!--    <p name="longitude" id="longitude"></p>-->
+<!--    <button type="submit"></button>-->
+<!--</form>-->
+<!--<button type="submit"><i class="fa fa-search"></i></button>-->
+
+<script>
+    // var x = document.getElementById("latitude");
+    // var y = document.getElementById("longitude");
+    var x = document.getElementById("curr_lat");
+    var y = document.getElementById("curr_lon");
+    window.onload = getLocation;
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        console.log("lat " + position.coords.latitude);
+        console.log("lon " + position.coords.longitude);
+        // x.innerText = position.coords.latitude;
+        // y.innerText = position.coords.longitude;
+        x.value = position.coords.latitude;
+        y.value = position.coords.longitude;
+    }
+</script>
+
 <table>
     <thead>
     <tr>
