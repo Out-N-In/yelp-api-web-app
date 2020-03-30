@@ -7,7 +7,7 @@
     <title>Yelp Result</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
+<body style="background-color:yellowgreen;">
 <lable id = "iResult"></lable>
 <form action="yelp">
         <input type="text" placeholder="What kind of food" name="term">
@@ -62,8 +62,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="b : ${yelp_result}">
-        <td><span th:text="${b.name}"> </span></td>
+    <tr th:each="b : ${yelp_result}" style="background-color:lightgoldenrodyellow;" >
+        <td><span th:text="${b.name}" > </span></td>
         <td><img th:src="${b.image_url}" width="300" /></td>
     </tr>
     </tbody>
