@@ -63,7 +63,7 @@
     </thead>
     <tbody>
     <tr th:each="b : ${yelp_result}" style="background-color:lightgoldenrodyellow;" >
-        <td><span th:text="${b.name}" > </span></td>
+        <td><span th:text="${b.name}" style="background-color:lightgoldenrodyellow;"> </span></td>
         <td><img th:src="${b.image_url}" width="300" /></td>
     </tr>
     </tbody>
