@@ -59,12 +59,17 @@
     <tr>
         <th> Name </th>
         <th> Image </th>
+        <th>Rating</th>
+        <th>Price Range</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="b : ${yelp_result}" style="background-color:lightgoldenrodyellow;" >
         <td><span th:text="${b.name}" > </span></td>
-        <td><img th:src="${b.image_url}" width="300" /></td>
+        <td><img th:src="${b.image_url}" width="600" /></td>
+        <td><span th:text="${b.rating}" ></span></td>
+        <td><span th:text="${b.price}" > </span></td>
+
     </tr>
     </tbody>
 </table>

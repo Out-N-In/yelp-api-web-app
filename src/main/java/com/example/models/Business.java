@@ -10,6 +10,8 @@ public class Business {
     private String name;
 
     private String image_url;
+    private String price;
+    private String rating;
     private boolean is_closed;
     private String url;
 
@@ -44,6 +46,18 @@ public class Business {
     public void setImage_url(String image_url) {
         this.image_url = image_url;
     }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getRating(){ return rating;}
+
+    public void setRating(String rating){this.rating = rating;}
 
     public boolean isIs_closed() {
         return is_closed;
