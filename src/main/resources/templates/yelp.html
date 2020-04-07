@@ -158,14 +158,10 @@
     <thead>
     <tr>
         <th> Name </th>
-<!--        <th> Image </th>-->
         <th>Rating</th>
         <th>Price Range</th>
         <th>Phone</th>
         <th>Photo</th>
-<!--        <th>Photo1</th>-->
-<!--        <th>Photo2</th>-->
-<!--        <th>Photo3</th>-->
     </tr>
     </thead>
     <tbody>
@@ -175,39 +171,12 @@
         <td><span th:text="${b.rating}" ></span></td>
         <td><span th:text="${b.price}" > </span></td>
         <td><span th:text="${b.display_phone}" > </span></td>
-<!--        <td>-->
-<!--        <div th:each="c:${b.photos}">-->
-<!--            <span th:text="${c}"></span>-->
-<!--        </div>-->
-<!--        </td>-->
         <td class="slideshow-container" th:id="${b.id}">
             <div th:each="c,iter : ${b.photos}">
                 <div  style="display:none" class="mySlides fade" th:classappend="${iter.index}">
-<!--                    <div style="display:none" th:class="${iter.index}">-->
-                        <img th:src="${c}" width="300">
-<!--                    </div>-->
+                    <img th:src="${c}" width="300">
                 </div>
-
-
             </div>
-
-<!--            <div style="display:block" class="mySlides fade">-->
-<!--                <div class="numbertext">1 / 3</div>-->
-<!--                <img th:src="${b.photos.get(0)}" width="300">-->
-<!--                <div class="text">Caption One</div>-->
-<!--            </div>-->
-
-<!--            <div style="display:none" class="mySlides fade">-->
-<!--                <div class="numbertext">2 / 3</div>-->
-<!--                <img th:src="${b.photos.get(1)}" width="300">-->
-<!--                <div class="text">Caption Two</div>-->
-<!--            </div>-->
-
-<!--            <div style="display:none" class="mySlides fade">-->
-<!--                <div class="numbertext">3 / 3</div>-->
-<!--                <img th:src="${b.photos.get(2)}" width="300">-->
-<!--                <div class="text">Caption Three</div>-->
-<!--            </div>-->
 
             <a class="prev" th:name="${b.id}" onclick="plusSlides(this.name, -1)">&#10094;</a>
             <a class="next" th:name="${b.id}" onclick="plusSlides(this.name, 1)">&#10095;</a>
@@ -218,16 +187,7 @@
 <!--            </div>-->
 
         </td>
-
-<!--        </td>-->
-
-<!--        <td><img th:src="${b.photos.get(0)}" width="200" /></td>-->
-<!--        <td><img th:src="${b.photos.get(1)}" width="200" /></td>-->
-<!--        <td><img th:src="${b.photos.get(2)}" width="200" /></td>-->
     </tr>
-
-        <!--        <td><img th:src="${b.photos.get(0)}" width="600" /></td>-->
-
     </tr>
 
     </tr>
