@@ -7,11 +7,15 @@ public class BusinessList {
         return businesses;
     }
 
+    public Business getBusiness(){return business;}
+
     public void setBusinesses(List<Business> businesses) {
         this.businesses = businesses;
     }
 
     private List<Business> businesses;
+
+    private Business business;
 
     @Override
     public String toString() {

@@ -1,5 +1,6 @@
 package com.example.servingwebcontent;
 
+import com.example.models.Business;
 import com.example.models.BusinessList;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -44,6 +45,17 @@ public class YelpController {
         headers.set("Authorization", "Bearer jiTCndmYGMD0Sm5AGzAijEvAzBKrDltO4_lOBQJ4LrrWvjR2_5VkmR-Cio9c2cbeH9ADRgxX1mn_dz7RDUg9uXF07TJ3gb-dwgYHLU_cOi9gyGjk0i0pKCyH3jlgXnYx");
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<BusinessList> response = restTemplate.exchange(sb.toString(), HttpMethod.GET, entity, BusinessList.class);
+
+        //response.getBody().getBusinesses().size()
+
+        for (int i = 0; i< response.getBody().getBusinesses().size();i++){
+            //System.out.println((response.getBody().getBusinesses().get(i).getId()));
+            StringBuilder photosRequest = new StringBuilder("https://api.yelp.com/v3/businesses/");
+            photosRequest.append((response.getBody().getBusinesses().get(i).getId()));
+            ResponseEntity<Business> response1 = restTemplate.exchange(photosRequest.toString(), HttpMethod.GET, entity, Business.class);
+            response.getBody().getBusinesses().get(i).setPhotos(response1.getBody().getPhotos());
+        }
+
         model.addAttribute("yelp_result", response.getBody().getBusinesses());
         return "yelp";
     }
