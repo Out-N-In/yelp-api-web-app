@@ -7,6 +7,8 @@ public class BusinessList {
         return businesses;
     }
 
+    //public int getBusinessesLength(){return businesses.size();}
+
     public Business getBusiness(){return business;}
 
     public void setBusinesses(List<Business> businesses) {
