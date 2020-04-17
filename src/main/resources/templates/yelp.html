@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -194,6 +194,9 @@
     </tbody>
 </table>
 <script>
+    //var slideIndex = 1;
+    // need access to the length of returned business list
+    var dict = {};
     var slideIndex = 1;
     window.onload = initiateGalleries;
 
@@ -205,30 +208,55 @@
     }
 
     function plusSlides(business_id, n) {
-        showSlides(business_id, slideIndex += n);
+        if(dict[business_id]){
+            dict[business_id] += n;
+        }else{
+            dict[business_id] = 1;
+            dict[business_id] += n;
+        }
+        showSlides(business_id);
     }
 
-    function currentSlide(business_id, n) {
-        showSlides(business_id, slideIndex = n);
-    }
+    // function currentSlide(business_id, n) {
+    //      if(dict[business_id]){
+    //          dict[business_id] = n;
+    //      }else{
+    //          dict[business_id] = 1;
+    //          dict[business_id] = n;
+    //      }
+    //      showSlides(business_id);
+    //  }
 
-    function showSlides(business_id, n) {
+    function showSlides(business_id) {
+        //var slideIndex = 1;
         var i;
-        var dots = document.getElementById(business_id).getElementsByClassName("dot");
+        if (dict[business_id]){
+            slideIndex = dict[business_id];
+        }else{
+            dict[business_id] = 1;
+            slideIndex = dict[business_id];
+        }
+        // var dots = document.getElementById(business_id).getElementsByClassName("dot");
         var slides = document.getElementById(business_id).getElementsByClassName("mySlides");
 
-        if (n > slides.length) {slideIndex = 1}
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+            dict[business_id] = slideIndex;
+        }
 
-        if (n < 1) {slideIndex = slides.length}
+        if (slideIndex < 1) {
+            slideIndex = slides.length;
+            dict[business_id] = slideIndex;
+        }
 
-        for (i = 0; i < slides.length; i++) {
+        for ( i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
+        // for ( i = 0; i < dots.length; i++) {
+        //     dots[i].className = dots[i].className.replace(" active", "");
+        // }
         slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
+        // dots[slideIndex-1].className += " active";
     }
 </script>
 
